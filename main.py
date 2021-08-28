@@ -33,7 +33,7 @@ def floatToRating(a):
 
 # print('ความแม่นยำเท่ากับ {}%'.format(100*total/all))
 
-print('price.from Distance summary.score atmosphere cleanliness facilities location.y security staff valueformoney')
+print('Data: price.from Distance summary.score atmosphere cleanliness facilities location.y security staff valueformoney')
 print('Example : \t3300 2.9 9.2 8.9 9.4 9.3 8.9 9.0 9.4 9.4')
 test = list(map(float, input('Enter data: \t').split()))
 print('Result: {}'.format(floatToRating(model_01.predict(np.array([test])).tolist()[0][0])))
