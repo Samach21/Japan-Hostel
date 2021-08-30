@@ -32,7 +32,7 @@ def floatToRating(a):
 #     if a == b:
 #         total += 1  
 
-print('ความแม่นยำเท่ากับ {}%'.format(100*total/all))
+# print('ความแม่นยำเท่ากับ {}%'.format(100*total/all))
 
 print('Data: price.from Distance summary.score atmosphere cleanliness facilities location.y security staff valueformoney')
 print('Example : \t3300 2.9 9.2 8.9 9.4 9.3 8.9 9.0 9.4 9.4')
