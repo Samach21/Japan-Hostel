@@ -54,7 +54,7 @@ listY_train, listY_test = classifyData(listY)
 xtrain = np.array(listX_train)
 ytrain = np.array(listY_train)
 model = LinearRegression().fit(xtrain, ytrain)
-
+print(model.score(xtrain, ytrain))
 
 #print('Variance score: {}'.format(model.score(x, y)))
 
