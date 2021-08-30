@@ -23,8 +23,8 @@ ratingBandMapper = {
     'Superb' : 0,
     'Fabulous' : 1,
     'Very Good': 2,
-    'Rating' : 3,
-    'Good' : 4
+    'Good' : 3,
+    'Rating' : 4,
 }
 for i in dictY:
     dictY[i] = [ratingBandMapper[dictY[i]]]
@@ -35,11 +35,26 @@ dataX.update(newDataX)
 dataY = pd.DataFrame.from_dict(dictY, orient='index', columns=['rating.band'])
 
 #train the model
-dx_list = dataX.values.tolist()
-dy_list = dataY.values.tolist()
-x = np.array(dx_list)
-y = np.array(dy_list)
-model = LinearRegression().fit(x, y)
+listX = dataX.values.tolist()
+listY = dataY.values.tolist()
+
+def classifyData(list):
+    ls80 = []
+    ls20 = []
+    for i in range(len(list)):
+        if i <= int(len(list) * 0.8):
+            ls80.append(list[i])
+        else:
+            ls20.append(list[i])
+    return (ls80, ls20)
+
+listX_train, listX_test = classifyData(listX)
+listY_train, listY_test = classifyData(listY)
+
+xtrain = np.array(listX_train)
+ytrain = np.array(listY_train)
+model = LinearRegression().fit(xtrain, ytrain)
+
 
 #print('Variance score: {}'.format(model.score(x, y)))
 
